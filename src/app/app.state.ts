@@ -53,12 +53,7 @@ export class AppState implements StateTrait {
             defaultFileSystem: Promise.resolve(new Map<string, string>()),
         })
 
-        this.emptyProject = new Projects.ProjectState({
-            main: Projects.emptyWorkflowModel(),
-            instancePool: new Projects.InstancePool(),
-            macros: [],
-            environment: new Projects.Environment(),
-        })
+        this.emptyProject = new Projects.ProjectState()
         this.project$ = new BehaviorSubject<Projects.ProjectState>(
             this.emptyProject,
         )
