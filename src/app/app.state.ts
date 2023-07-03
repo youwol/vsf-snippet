@@ -97,6 +97,12 @@ export class AppState implements StateTrait {
         /* no implementation for now*/
     }
 
+    displayWorkerEnvironment(
+        _workerEnv: Projects.Workers.WorkerEnvironmentTrait,
+    ) {
+        /* no implementation for now*/
+    }
+
     select(_entities: Immutables<Selectable>) {
         /* no implementation for now*/
     }
