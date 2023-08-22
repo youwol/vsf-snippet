@@ -34,7 +34,13 @@ template = Template(
     version=pkg_json["version"],
     shortDescription=pkg_json["description"],
     author=pkg_json["author"],
-    dependencies=Dependencies(runTime=RunTimeDeps(externals=load_dependencies)),
+    dependencies=Dependencies(
+        runTime=RunTimeDeps(externals=load_dependencies),
+        devTime={
+            # `@types/lz-string` required for documentation step
+            "@types/lz-string": "^1.5.0"
+        },
+    ),
     userGuide=True,
     devServer=DevServer(port=3016),
     bundles=Bundles(
