@@ -2,7 +2,8 @@ import { BehaviorSubject } from 'rxjs'
 import {
     Projects,
     Modules,
-    Attributes,
+    Configurations,
+    Deployers,
     Immutable,
     Immutables,
 } from '@youwol/vsf-core'
@@ -61,7 +62,7 @@ export class AppState implements StateTrait {
 
     execute() {
         const cell = new Projects.JsCell({
-            source: new Attributes.JsCode<Projects.CellFunction>({
+            source: new Configurations.JsCode<Projects.CellFunction>({
                 value: this.ideState.updates$['./main'].value.content,
             }),
             viewsFactory: this.emptyProject.environment.viewsFactory,
@@ -98,7 +99,7 @@ export class AppState implements StateTrait {
     }
 
     displayWorkerEnvironment(
-        _workerEnv: Projects.Workers.WorkerEnvironmentTrait,
+        _workerEnv: Immutable<Deployers.WorkerEnvironmentTrait>,
     ) {
         /* no implementation for now*/
     }

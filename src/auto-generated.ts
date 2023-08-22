@@ -1,19 +1,19 @@
 
 const runTimeDependencies = {
     "externals": {
-        "@youwol/vsf-core": "0.1.1",
-        "@youwol/vsf-canvas": "0.1.0",
+        "@youwol/vsf-core": "^0.2.0",
+        "@youwol/vsf-canvas": "^0.2.0",
         "rxjs": "^6.5.5",
         "@youwol/flux-view": "^1.1.0",
-        "@youwol/cdn-client": "^2.0.4",
+        "@youwol/cdn-client": "^2.0.6",
         "@youwol/fv-code-mirror-editors": "^0.2.2",
         "@youwol/os-top-banner": "^0.1.1"
     },
     "includedInBundle": {}
 }
 const externals = {
-    "@youwol/vsf-core": "window['@youwol/vsf-core_APIv01']",
-    "@youwol/vsf-canvas": "window['@youwol/vsf-canvas_APIv01']",
+    "@youwol/vsf-core": "window['@youwol/vsf-core_APIv02']",
+    "@youwol/vsf-canvas": "window['@youwol/vsf-canvas_APIv02']",
     "rxjs": "window['rxjs_APIv6']",
     "@youwol/flux-view": "window['@youwol/flux-view_APIv1']",
     "@youwol/cdn-client": "window['@youwol/cdn-client_APIv2']",
@@ -23,11 +23,11 @@ const externals = {
 }
 const exportedSymbols = {
     "@youwol/vsf-core": {
-        "apiKey": "01",
+        "apiKey": "02",
         "exportedSymbol": "@youwol/vsf-core"
     },
     "@youwol/vsf-canvas": {
-        "apiKey": "01",
+        "apiKey": "02",
         "exportedSymbol": "@youwol/vsf-canvas"
     },
     "rxjs": {
@@ -74,13 +74,13 @@ const entries = {
 export const setup = {
     name:'@youwol/vsf-snippet',
         assetId:'QHlvdXdvbC92c2Ytc25pcHBldA==',
-    version:'0.0.1-wip',
+    version:'0.1.0-wip',
     shortDescription:"",
     developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/vsf-snippet&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/vsf-snippet',
     sourceGithub:'https://github.com/youwol/vsf-snippet',
     userGuide:'https://l.youwol.com/doc/@youwol/vsf-snippet',
-    apiVersion:'001',
+    apiVersion:'01',
     runTimeDependencies,
     externals,
     exportedSymbols,
@@ -105,7 +105,7 @@ export const setup = {
             modules,
             scripts,
         }).then(() => {
-            return window[`@youwol/vsf-snippet_APIv001`]
+            return window[`@youwol/vsf-snippet_APIv01`]
         })
     },
     installAuxiliaryModule: ({name, cdnClient, installParameters}:{
@@ -120,7 +120,7 @@ export const setup = {
         const parameters = installParameters || {}
         const scripts = [
             ...(parameters.scripts || []),
-            `@youwol/vsf-snippet#0.0.1-wip~dist/@youwol/vsf-snippet/${entry.name}.js`
+            `@youwol/vsf-snippet#0.1.0-wip~dist/@youwol/vsf-snippet/${entry.name}.js`
         ]
         const modules = [
             ...(parameters.modules || []),
@@ -131,7 +131,7 @@ export const setup = {
             modules,
             scripts,
         }).then(() => {
-            return window[`@youwol/vsf-snippet/${entry.name}_APIv001`]
+            return window[`@youwol/vsf-snippet/${entry.name}_APIv01`]
         })
     },
     getCdnDependencies(name?: string){
