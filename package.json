@@ -1,7 +1,7 @@
 {
     "name": "@youwol/vsf-snippet",
     "description": "",
-    "version": "0.0.1-wip",
+    "version": "0.1.0-wip",
     "author": "greinisch@youwol.com",
     "homepage": "https://github.com/youwol/vsf-snippet#README.md",
     "main": "dist/index.html",
