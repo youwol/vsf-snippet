@@ -61,5 +61,8 @@ for file in [
     "jest.config.ts",
     "tsconfig.json",
     "webpack.config.ts",
+    ".prettierignore",
+    ".gitignore",
+    ".npmignore",
 ]:
     shutil.copyfile(src=folder_path / ".template" / file, dst=folder_path / file)
