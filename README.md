@@ -1,6 +1,6 @@
 # @youwol/vsf-snippet
 
-
+Simple Visual Studio Flow project editor.
 
 This library is part of the hybrid cloud/local ecosystem
 [YouWol](https://platform.youwol.com/applications/@youwol/platform/latest).

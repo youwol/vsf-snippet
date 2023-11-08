@@ -75,7 +75,7 @@ export const setup = {
     name:'@youwol/vsf-snippet',
         assetId:'QHlvdXdvbC92c2Ytc25pcHBldA==',
     version:'0.1.0',
-    shortDescription:"",
+    shortDescription:"Simple Visual Studio Flow project editor.",
     developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/vsf-snippet&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/vsf-snippet',
     sourceGithub:'https://github.com/youwol/vsf-snippet',
