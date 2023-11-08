@@ -37,8 +37,8 @@ template = Template(
     dependencies=Dependencies(
         runTime=RunTimeDeps(externals=load_dependencies),
         devTime={
-            # `@types/lz-string` required for documentation step
-            "@types/lz-string": "^1.5.0"
+            # `lz-string` required for documentation step
+            "lz-string": "^1.4.4"
         },
     ),
     userGuide=True,
