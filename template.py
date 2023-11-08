@@ -23,7 +23,7 @@ load_dependencies = {
     "rxjs": "^6.5.5",
     "@youwol/flux-view": "^1.1.0",
     "@youwol/cdn-client": "^2.0.6",
-    "@youwol/fv-code-mirror-editors": "^0.2.2",
+    "@youwol/fv-code-mirror-editors": "^0.3.1",
     "@youwol/os-top-banner": "^0.1.1",
 }
 
