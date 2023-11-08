@@ -74,7 +74,7 @@ const entries = {
 export const setup = {
     name:'@youwol/vsf-snippet',
         assetId:'QHlvdXdvbC92c2Ytc25pcHBldA==',
-    version:'0.1.1',
+    version:'0.1.2-wip',
     shortDescription:"Simple Visual Studio Flow project editor.",
     developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/vsf-snippet&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/vsf-snippet',
@@ -120,7 +120,7 @@ export const setup = {
         const parameters = installParameters || {}
         const scripts = [
             ...(parameters.scripts || []),
-            `@youwol/vsf-snippet#0.1.1~dist/@youwol/vsf-snippet/${entry.name}.js`
+            `@youwol/vsf-snippet#0.1.2-wip~dist/@youwol/vsf-snippet/${entry.name}.js`
         ]
         const modules = [
             ...(parameters.modules || []),

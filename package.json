@@ -1,7 +1,7 @@
 {
     "name": "@youwol/vsf-snippet",
     "description": "Simple Visual Studio Flow project editor.",
-    "version": "0.1.1",
+    "version": "0.1.2-wip",
     "author": "greinisch@youwol.com",
     "homepage": "https://github.com/youwol/vsf-snippet#README.md",
     "main": "dist/index.html",
