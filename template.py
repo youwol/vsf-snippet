@@ -23,7 +23,7 @@ load_dependencies = {
     "rxjs": "^6.5.5",
     "@youwol/flux-view": "^1.1.0",
     "@youwol/cdn-client": "^2.0.6",
-    "@youwol/fv-code-mirror-editors": "^0.2.2",
+    "@youwol/fv-code-mirror-editors": "^0.3.1",
     "@youwol/os-top-banner": "^0.1.1",
 }
 
@@ -37,8 +37,8 @@ template = Template(
     dependencies=Dependencies(
         runTime=RunTimeDeps(externals=load_dependencies),
         devTime={
-            # `@types/lz-string` required for documentation step
-            "@types/lz-string": "^1.5.0"
+            # `lz-string` required for documentation step
+            "lz-string": "^1.4.4"
         },
     ),
     userGuide=True,
@@ -61,5 +61,8 @@ for file in [
     "jest.config.ts",
     "tsconfig.json",
     "webpack.config.ts",
+    ".prettierignore",
+    ".gitignore",
+    ".npmignore",
 ]:
     shutil.copyfile(src=folder_path / ".template" / file, dst=folder_path / file)

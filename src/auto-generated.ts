@@ -6,7 +6,7 @@ const runTimeDependencies = {
         "rxjs": "^6.5.5",
         "@youwol/flux-view": "^1.1.0",
         "@youwol/cdn-client": "^2.0.6",
-        "@youwol/fv-code-mirror-editors": "^0.2.2",
+        "@youwol/fv-code-mirror-editors": "^0.3.1",
         "@youwol/os-top-banner": "^0.1.1"
     },
     "includedInBundle": {}
@@ -17,7 +17,7 @@ const externals = {
     "rxjs": "window['rxjs_APIv6']",
     "@youwol/flux-view": "window['@youwol/flux-view_APIv1']",
     "@youwol/cdn-client": "window['@youwol/cdn-client_APIv2']",
-    "@youwol/fv-code-mirror-editors": "window['@youwol/fv-code-mirror-editors_APIv02']",
+    "@youwol/fv-code-mirror-editors": "window['@youwol/fv-code-mirror-editors_APIv03']",
     "@youwol/os-top-banner": "window['@youwol/os-top-banner_APIv01']",
     "rxjs/operators": "window['rxjs_APIv6']['operators']"
 }
@@ -43,7 +43,7 @@ const exportedSymbols = {
         "exportedSymbol": "@youwol/cdn-client"
     },
     "@youwol/fv-code-mirror-editors": {
-        "apiKey": "02",
+        "apiKey": "03",
         "exportedSymbol": "@youwol/fv-code-mirror-editors"
     },
     "@youwol/os-top-banner": {
@@ -74,8 +74,8 @@ const entries = {
 export const setup = {
     name:'@youwol/vsf-snippet',
         assetId:'QHlvdXdvbC92c2Ytc25pcHBldA==',
-    version:'0.1.0',
-    shortDescription:"",
+    version:'0.1.2-wip',
+    shortDescription:"Simple Visual Studio Flow project editor.",
     developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/vsf-snippet&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/vsf-snippet',
     sourceGithub:'https://github.com/youwol/vsf-snippet',
@@ -120,7 +120,7 @@ export const setup = {
         const parameters = installParameters || {}
         const scripts = [
             ...(parameters.scripts || []),
-            `@youwol/vsf-snippet#0.1.0~dist/@youwol/vsf-snippet/${entry.name}.js`
+            `@youwol/vsf-snippet#0.1.2-wip~dist/@youwol/vsf-snippet/${entry.name}.js`
         ]
         const modules = [
             ...(parameters.modules || []),
