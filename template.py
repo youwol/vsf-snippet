@@ -18,13 +18,13 @@ folder_path = Path(__file__).parent
 pkg_json = parse_json(folder_path / "package.json")
 
 load_dependencies = {
-    "@youwol/vsf-core": "^0.2.1",
-    "@youwol/vsf-canvas": "^0.2.1",
-    "rxjs": "^6.5.5",
-    "@youwol/flux-view": "^1.1.0",
-    "@youwol/cdn-client": "^2.0.6",
-    "@youwol/fv-code-mirror-editors": "^0.3.1",
-    "@youwol/os-top-banner": "^0.1.1",
+    "@youwol/vsf-core": "^0.3.0",
+    "@youwol/vsf-canvas": "^0.3.0",
+    "rxjs": "^7.5.6",
+    "@youwol/rx-vdom": "^1.0.1",
+    "@youwol/webpm-client": "^3.0.0",
+    "@youwol/rx-code-mirror-editors": "^0.4.0",
+    "@youwol/os-top-banner": "^0.2.0",
 }
 
 template = Template(
@@ -59,7 +59,7 @@ for file in [
     "README.md",
     "package.json",
     "jest.config.ts",
-    "tsconfig.json",
+    # "tsconfig.json", references `rx-vdom-config.ts`
     "webpack.config.ts",
     ".prettierignore",
     ".gitignore",

@@ -8,9 +8,9 @@ import {
     Immutables,
 } from '@youwol/vsf-core'
 
-import { Common } from '@youwol/fv-code-mirror-editors'
+import { Common } from '@youwol/rx-code-mirror-editors'
 import { StateTrait, Selectable } from '@youwol/vsf-canvas'
-import { VirtualDOM } from '@youwol/flux-view'
+import { AnyVirtualDOM } from '@youwol/rx-vdom'
 
 export type Mode = 'dag' | 'code' | 'view'
 /**
@@ -83,7 +83,9 @@ export class AppState implements StateTrait {
      */
 
     displayModuleView(
-        _module: Immutable<Modules.ImplementationTrait & { html: VirtualDOM }>,
+        _module: Immutable<
+            Modules.ImplementationTrait & { html: AnyVirtualDOM }
+        >,
     ) {
         /* no implementation for now*/
     }
