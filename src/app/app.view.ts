@@ -1,14 +1,20 @@
-import { VirtualDOM, child$ } from '@youwol/flux-view'
-import { AppState } from './app.state'
+import { VirtualDOM, ChildrenLike } from '@youwol/rx-vdom'
+import { AppState, Mode } from './app.state'
 import { TopBannerView } from './top-banner'
-import { Common } from '@youwol/fv-code-mirror-editors'
+import { Common } from '@youwol/rx-code-mirror-editors'
 import { Renderer3DView } from '@youwol/vsf-canvas'
 import { filter } from 'rxjs/operators'
+import { Immutable, Projects } from '@youwol/vsf-core'
 
 /**
  * @category View
  */
-export class CanvasView implements VirtualDOM {
+export class CanvasView implements VirtualDOM<'div'> {
+    /**
+     * @group Immutable DOM Constants
+     */
+    public readonly tag = 'div'
+
     /**
      * @group Immutable DOM Constants
      */
@@ -20,7 +26,7 @@ export class CanvasView implements VirtualDOM {
     /**
      * @group Immutable DOM Constants
      */
-    public readonly children: VirtualDOM
+    public readonly children: ChildrenLike
 
     /**
      * @group Immutable DOM Constants
@@ -43,7 +49,11 @@ export class CanvasView implements VirtualDOM {
 /**
  * @category View
  */
-export class View implements VirtualDOM {
+export class View implements VirtualDOM<'div'> {
+    /**
+     * @group Immutable DOM Constants
+     */
+    public readonly tag = 'div'
     /**
      * @group Immutable DOM Constants
      */
@@ -55,7 +65,7 @@ export class View implements VirtualDOM {
     /**
      * @group Immutable DOM Constants
      */
-    public readonly children: VirtualDOM
+    public readonly children: ChildrenLike
 
     /**
      * @group Immutable DOM Constants
@@ -65,16 +75,16 @@ export class View implements VirtualDOM {
     constructor(params: { state: AppState }) {
         Object.assign(this, params)
         this.children = [
-            child$(
-                this.state.project$.pipe(
+            {
+                source$: this.state.project$.pipe(
                     filter(
                         (project) => Object.values(project.views).length > 0,
                     ),
                 ),
-                (project) => {
-                    return Object.values(project.views)[0]
+                vdomMap: (project: Immutable<Projects.ProjectState>) => {
+                    return Object.values(project.views)[0](project.instancePool)
                 },
-            ),
+            },
         ]
 
         this.connectedCallback = () => {
@@ -85,7 +95,11 @@ export class View implements VirtualDOM {
 /**
  * @category View
  */
-export class CodeView implements VirtualDOM {
+export class CodeView implements VirtualDOM<'div'> {
+    /**
+     * @group Immutable DOM Constants
+     */
+    public readonly tag = 'div'
     /**
      * @group Immutable DOM Constants
      */
@@ -97,7 +111,7 @@ export class CodeView implements VirtualDOM {
     /**
      * @group Immutable DOM Constants
      */
-    public readonly children: VirtualDOM
+    public readonly children: ChildrenLike
 
     constructor(params: { state: AppState }) {
         Object.assign(this, params)
@@ -108,34 +122,39 @@ export class CodeView implements VirtualDOM {
         })
         this.children = [
             {
+                tag: 'div',
                 class: 'w-100 flex-grow-1',
                 style: {
                     minHeight: '0px',
                 },
                 children: [ideView],
             },
-            child$(this.state.ideState.updates$['./main'], (file) => {
-                const url = `/applications/@youwol/vsf-snippet/latest?content=${encodeURIComponent(
-                    file.content,
-                )}`
+            {
+                source$: this.state.ideState.updates$['./main'],
+                vdomMap: (file: { content: string }) => {
+                    const url = `/applications/@youwol/vsf-snippet/latest?content=${encodeURIComponent(
+                        file.content,
+                    )}`
 
-                return {
-                    class: 'd-flex p-3',
-                    children: [
-                        {
-                            innerText: 'Application URL can be copied from ',
-                        },
-                        {
-                            class: 'mx-1',
-                        },
-                        {
-                            tag: 'a',
-                            href: url,
-                            innerText: 'here',
-                        },
-                    ],
-                }
-            }),
+                    return {
+                        tag: 'div',
+                        class: 'd-flex p-3',
+                        children: [
+                            {
+                                tag: 'div',
+                                innerText:
+                                    'Application URL can be copied from ',
+                            },
+                            { tag: 'div', class: 'mx-1' },
+                            {
+                                tag: 'a',
+                                href: url,
+                                innerText: 'here',
+                            },
+                        ],
+                    }
+                },
+            },
         ]
     }
 }
@@ -144,7 +163,11 @@ export class CodeView implements VirtualDOM {
  * @category View
  * @category Entry Point
  */
-export class AppView implements VirtualDOM {
+export class AppView implements VirtualDOM<'div'> {
+    /**
+     * @group Immutable DOM Constants
+     */
+    public readonly tag = 'div'
     /**
      * @group Immutable DOM Constants
      */
@@ -153,7 +176,7 @@ export class AppView implements VirtualDOM {
     /**
      * @group Immutable DOM Constants
      */
-    public readonly children: VirtualDOM[]
+    public readonly children: ChildrenLike
     /**
      * @group States
      */
@@ -164,20 +187,24 @@ export class AppView implements VirtualDOM {
         this.children = [
             new TopBannerView({ state: this.state }),
             {
+                tag: 'div',
                 class: 'flex-grow-1 w-100 overflow-hidden',
                 style: {
                     minHeight: '0px',
                 },
                 children: [
-                    child$(this.state.mode$, (mode) => {
-                        if (mode == 'view') {
-                            return new View({ state: this.state })
-                        }
-                        if (mode == 'dag') {
-                            return new CanvasView({ state: this.state })
-                        }
-                        return new CodeView({ state: this.state })
-                    }),
+                    {
+                        source$: this.state.mode$,
+                        vdomMap: (mode: Mode) => {
+                            if (mode == 'view') {
+                                return new View({ state: this.state })
+                            }
+                            if (mode == 'dag') {
+                                return new CanvasView({ state: this.state })
+                            }
+                            return new CodeView({ state: this.state })
+                        },
+                    },
                 ],
             },
         ]
