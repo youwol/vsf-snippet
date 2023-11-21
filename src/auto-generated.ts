@@ -74,13 +74,13 @@ const entries = {
 export const setup = {
     name:'@youwol/vsf-snippet',
         assetId:'QHlvdXdvbC92c2Ytc25pcHBldA==',
-    version:'0.1.2-wip',
+    version:'0.3.0-wip',
     shortDescription:"Simple Visual Studio Flow project editor.",
     developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/vsf-snippet&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/vsf-snippet',
     sourceGithub:'https://github.com/youwol/vsf-snippet',
     userGuide:'https://l.youwol.com/doc/@youwol/vsf-snippet',
-    apiVersion:'01',
+    apiVersion:'03',
     runTimeDependencies,
     externals,
     exportedSymbols,
@@ -105,7 +105,7 @@ export const setup = {
             modules,
             scripts,
         }).then(() => {
-            return window[`@youwol/vsf-snippet_APIv01`]
+            return window[`@youwol/vsf-snippet_APIv03`]
         })
     },
     installAuxiliaryModule: ({name, cdnClient, installParameters}:{
@@ -120,7 +120,7 @@ export const setup = {
         const parameters = installParameters || {}
         const scripts = [
             ...(parameters.scripts || []),
-            `@youwol/vsf-snippet#0.1.2-wip~dist/@youwol/vsf-snippet/${entry.name}.js`
+            `@youwol/vsf-snippet#0.3.0-wip~dist/@youwol/vsf-snippet/${entry.name}.js`
         ]
         const modules = [
             ...(parameters.modules || []),
@@ -131,7 +131,7 @@ export const setup = {
             modules,
             scripts,
         }).then(() => {
-            return window[`@youwol/vsf-snippet/${entry.name}_APIv01`]
+            return window[`@youwol/vsf-snippet/${entry.name}_APIv03`]
         })
     },
     getCdnDependencies(name?: string){
