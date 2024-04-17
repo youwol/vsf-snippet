@@ -18,12 +18,12 @@ folder_path = Path(__file__).parent
 pkg_json = parse_json(folder_path / "package.json")
 
 load_dependencies = {
-    "@youwol/vsf-core": "^0.3.0",
+    "@youwol/vsf-core": "^0.3.1",
     "@youwol/vsf-canvas": "^0.3.0",
     "rxjs": "^7.5.6",
     "@youwol/rx-vdom": "^1.0.1",
     "@youwol/webpm-client": "^3.0.0",
-    "@youwol/rx-code-mirror-editors": "^0.4.0",
+    "@youwol/rx-code-mirror-editors": "^0.5.0",
     "@youwol/os-top-banner": "^0.2.0",
 }
 
