@@ -1,54 +1,54 @@
 
 const runTimeDependencies = {
     "externals": {
-        "@youwol/vsf-core": "^0.3.1",
-        "@youwol/vsf-canvas": "^0.3.0",
-        "rxjs": "^7.5.6",
-        "@youwol/rx-vdom": "^1.0.1",
-        "@youwol/webpm-client": "^3.0.0",
+        "@youwol/os-top-banner": "^0.2.0",
         "@youwol/rx-code-mirror-editors": "^0.5.0",
-        "@youwol/os-top-banner": "^0.2.0"
+        "@youwol/rx-vdom": "^1.0.1",
+        "@youwol/vsf-canvas": "^0.3.0",
+        "@youwol/vsf-core": "^0.3.1",
+        "@youwol/webpm-client": "^3.0.0",
+        "rxjs": "^7.5.6"
     },
     "includedInBundle": {}
 }
 const externals = {
-    "@youwol/vsf-core": "window['@youwol/vsf-core_APIv03']",
-    "@youwol/vsf-canvas": "window['@youwol/vsf-canvas_APIv03']",
-    "rxjs": "window['rxjs_APIv7']",
-    "@youwol/rx-vdom": "window['@youwol/rx-vdom_APIv1']",
-    "@youwol/webpm-client": "window['@youwol/webpm-client_APIv3']",
-    "@youwol/rx-code-mirror-editors": "window['@youwol/rx-code-mirror-editors_APIv05']",
     "@youwol/os-top-banner": "window['@youwol/os-top-banner_APIv02']",
+    "@youwol/rx-code-mirror-editors": "window['@youwol/rx-code-mirror-editors_APIv05']",
+    "@youwol/rx-vdom": "window['@youwol/rx-vdom_APIv1']",
+    "@youwol/vsf-canvas": "window['@youwol/vsf-canvas_APIv03']",
+    "@youwol/vsf-core": "window['@youwol/vsf-core_APIv03']",
+    "@youwol/webpm-client": "window['@youwol/webpm-client_APIv3']",
+    "rxjs": "window['rxjs_APIv7']",
     "rxjs/operators": "window['rxjs_APIv7']['operators']"
 }
 const exportedSymbols = {
-    "@youwol/vsf-core": {
-        "apiKey": "03",
-        "exportedSymbol": "@youwol/vsf-core"
-    },
-    "@youwol/vsf-canvas": {
-        "apiKey": "03",
-        "exportedSymbol": "@youwol/vsf-canvas"
-    },
-    "rxjs": {
-        "apiKey": "7",
-        "exportedSymbol": "rxjs"
-    },
-    "@youwol/rx-vdom": {
-        "apiKey": "1",
-        "exportedSymbol": "@youwol/rx-vdom"
-    },
-    "@youwol/webpm-client": {
-        "apiKey": "3",
-        "exportedSymbol": "@youwol/webpm-client"
+    "@youwol/os-top-banner": {
+        "apiKey": "02",
+        "exportedSymbol": "@youwol/os-top-banner"
     },
     "@youwol/rx-code-mirror-editors": {
         "apiKey": "05",
         "exportedSymbol": "@youwol/rx-code-mirror-editors"
     },
-    "@youwol/os-top-banner": {
-        "apiKey": "02",
-        "exportedSymbol": "@youwol/os-top-banner"
+    "@youwol/rx-vdom": {
+        "apiKey": "1",
+        "exportedSymbol": "@youwol/rx-vdom"
+    },
+    "@youwol/vsf-canvas": {
+        "apiKey": "03",
+        "exportedSymbol": "@youwol/vsf-canvas"
+    },
+    "@youwol/vsf-core": {
+        "apiKey": "03",
+        "exportedSymbol": "@youwol/vsf-core"
+    },
+    "@youwol/webpm-client": {
+        "apiKey": "3",
+        "exportedSymbol": "@youwol/webpm-client"
+    },
+    "rxjs": {
+        "apiKey": "7",
+        "exportedSymbol": "rxjs"
     }
 }
 
